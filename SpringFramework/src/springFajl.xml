@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	
+	<context:property-placeholder location="imena.properties"/>
+	
+	<bean id = "mojOmiljeniVirusolog" class="mojPaket.Virusolog" scope="prototype">
+		<constructor-arg name="oblast" ref = "mojaOblast" index="0"/> <!-- constructor injection -->
+		<constructor-arg name="ime" value="${virusolog.ime}" index="1"/>
+	</bean>
+
+	<bean id = "mojOmiljeniPedijatar" 
+		  class="mojPaket.Pedijatar" 
+		  init-method="inicijalniMetod"
+		  destroy-method="zavrsniMetod">
+		<property name="oblast" ref = "mojaOblast"/><!-- setter injection -->
+		<property name="ime" value="${pedijatar.ime}"/>
+	</bean>
+
+	<bean id = "mojaOblast" class = "mojPaket.Oblast">
+	
+	</bean>
+
+</beans>
