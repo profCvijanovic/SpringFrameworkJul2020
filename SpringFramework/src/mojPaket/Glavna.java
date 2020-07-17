@@ -9,11 +9,11 @@ public class Glavna {
 		// ovo je fabrika
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("springFajl.xml");
 		
-		Doktor doktor = context.getBean("mojOmiljeniPedijatar",Doktor.class);
+		Doktor doktor = context.getBean("pedijatar",Doktor.class);
 		
 		doktor.pozdrav();
 		doktor.mojaOblastRada();
-	
+		
 		context.close();
 	
 

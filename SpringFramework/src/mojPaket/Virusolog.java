@@ -1,13 +1,19 @@
 package mojPaket;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+@Component
+@Scope("prototype")
 public class Virusolog implements Doktor {
 
 	private Oblast oblast;
 	private String ime;
 	
-	public Virusolog(Oblast oblast,String ime) {
+	@Autowired
+	public Virusolog(Oblast oblast) {
 		this.oblast = oblast;
-		this.ime = ime;
 	}
 	
 	@Override

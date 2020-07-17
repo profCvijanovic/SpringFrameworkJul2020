@@ -7,22 +7,8 @@
 	
 	
 	<context:property-placeholder location="imena.properties"/>
+	<context:component-scan base-package="mojPaket"/>
 	
-	<bean id = "mojOmiljeniVirusolog" class="mojPaket.Virusolog" scope="prototype">
-		<constructor-arg name="oblast" ref = "mojaOblast" index="0"/> <!-- constructor injection -->
-		<constructor-arg name="ime" value="${virusolog.ime}" index="1"/>
-	</bean>
 
-	<bean id = "mojOmiljeniPedijatar" 
-		  class="mojPaket.Pedijatar" 
-		  init-method="inicijalniMetod"
-		  destroy-method="zavrsniMetod">
-		<property name="oblast" ref = "mojaOblast"/><!-- setter injection -->
-		<property name="ime" value="${pedijatar.ime}"/>
-	</bean>
-
-	<bean id = "mojaOblast" class = "mojPaket.Oblast">
-	
-	</bean>
 
 </beans>
